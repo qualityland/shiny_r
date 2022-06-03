@@ -98,3 +98,25 @@ Inline equations look like $\bar{x} = \sum_{i = 1}^n \frac{x_1}{n}$.
 # Footnotes
 
 We^[everyone enjoing this video] are learning markdown^[markdown is a simple way of writing documents] on our way to learning RMarkdown.
+
+
+# Simple Code
+
+```{r this-label}
+1 + 1
+```
+
+```{r multiplication}
+4 * 2
+```
+
+```{r subtraction}
+5 - 3
+```
+
+```{r multi-line}
+1 + 1
+4 * 2
+5 - 3
+```
+
