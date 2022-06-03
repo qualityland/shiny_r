@@ -1,0 +1,89 @@
+---
+author: "Stefan Schmidt"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# Level 1 Heading
+
+This is a sentence. Any text here gets rendered as normal text.
+
+A blank line creates a new paragraph, still in the same section.
+
+# Another Level 1 Heading
+
+More text.
+
+## Level 2 Heading
+
+This is a subsection under the level 1 heading.
+
+# Back to Level 1
+
+This starts a new section.
+
+# Text Formatting
+
+_italic_ 
+
+__bold__
+
+___italic and bold___
+
+# Lists {#TheLists}
+
+## Unordered Lists
+
+- apples
+- bananas
+- oranges
+- kiwis
+
+## Ordered Lists
+
+### Numbered Lists
+
+1. New York
+1. New Jersey
+1. Naples
+1. Conneticut
+1. Detroit
+
+### Lettered Lists
+
+a. Coal
+a. Wood
+a. Gas
+
+## Nested Lists
+
+<!-- indent using 4 spaces (2 are not sufficient!) --> 
+
+1. New York
+    a. Coal
+    a. Wood
+    a. Gas
+        - Baker's Pride
+        - Bari
+    a. Electric
+1. New Jersey
+1. Philadelphia
+1. Detroit
+
+# Links
+
+[My Website](www.jaredlander.com)
+
+[Check out the pizza section](#TheLists)
+
+# Math
+
+$$
+    \bar{x} = \sum_{i = 1}^n \frac{x_1}{n}
+$$
+
+Inline equations look like $\bar{x} = \sum_{i = 1}^n \frac{x_1}{n}$.
+
+# Footnotes
+
+We^[everyone enjoing this video] are learning markdown^[markdown is a simple way of writing documents] on our way to learning RMarkdown.
