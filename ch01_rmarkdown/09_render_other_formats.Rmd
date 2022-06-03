@@ -2,7 +2,17 @@
 title: "RMarkdown Primer"
 author: "Stefan Schmidt"
 date: "`r Sys.Date()`"
-output: html_document
+output:
+    pdf_document:
+        number_sections: true
+        toc: true
+    html_document:
+        number_sections: true
+        toc: true
+        toc_float:
+            collapsed: false
+            smooth_scroll: true
+        code_download: true
 ---
 
 # Level 1 Heading
