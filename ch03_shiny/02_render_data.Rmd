@@ -9,4 +9,10 @@ runtime: shiny
 
 ```{r render-data, echo=FALSE}
 renderTable(mtcars)
+
+
+renderDataTable(mtcars)
+
+
+DT::renderDataTable(mtcars)
 ```

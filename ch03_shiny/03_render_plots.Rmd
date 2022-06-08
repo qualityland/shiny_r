@@ -1,0 +1,25 @@
+---
+title: "Simple Shiny Document"
+author: "Stefan Schmidt"
+output: html_document
+runtime: shiny
+---
+
+# Render Plot
+
+```{r plot-options, echo=FALSE}
+selectInput(inputId="plotColumn",
+            label="Choose a column:",
+            choices=names(mtcars)
+)
+sliderInput(inputId="breaks",
+            label="Choose number of breaks:",
+            min=5,
+            max=50,
+            value=30
+)
+```
+
+```{r render-plot, echo=FALSE}
+renderPlot(hist(mtcars[, input$plotColumn], breaks=input$breaks))
+```
