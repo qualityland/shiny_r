@@ -1,0 +1,13 @@
+---
+title: "Slideshow Fun"
+author: "Stefan J. Schmidt"
+output:
+    ioslides_presentation:
+        logo: logo.jpg
+        widescreen: yes
+        self_contained: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```

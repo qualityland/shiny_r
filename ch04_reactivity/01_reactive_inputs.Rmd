@@ -1,0 +1,65 @@
+---
+title: "Simple Shiny Document"
+author: "Stefan J. Schmidt"
+output: html_document
+runtime: shiny
+---
+
+# Shiny Reactivity
+
+```{r text-input, echo=FALSE}
+textInput(inputId = "textInput",
+          label = "Please enter some text:",
+          value = "starting text")
+```
+
+```{r text-render, echo=FALSE}
+renderText(input$textInput)
+```
+
+
+```{r date-input}
+dateInput(inputId = "dateInput",
+          label = "Select a date:")
+```
+
+Internally represented as:
+
+```{r date-render}
+renderText(input$dateInput)
+```
+
+
+# Naive Reactivity
+
+Outside of reactive context:
+
+```{r load-lubridate, echo=FALSE}
+library(lubridate)
+```
+
+```{r display-date, eval=FALSE}
+theDate <- input$dateInput
+
+renderText(sprintf(
+  "%s %s, %s",
+  month(theDate, label = TRUE, abbr = FALSE),
+  day(theDate),
+  year(theDate)
+))
+```
+
+
+# Correct Reactivity
+
+```{r display-date2}
+theDate <- reactive(input$dateInput)
+renderText(sprintf(
+  "%s %s, %s",
+  month(theDate(), label = TRUE, abbr = FALSE),
+  day(theDate()),
+  year(theDate())
+))
+```
+
+
