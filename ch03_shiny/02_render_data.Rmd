@@ -1,0 +1,12 @@
+---
+title: "Simple Shiny Document"
+author: "Stefan Schmidt"
+output: html_document
+runtime: shiny
+---
+
+# Render Data
+
+```{r render-data, echo=FALSE}
+renderTable(mtcars)
+```
