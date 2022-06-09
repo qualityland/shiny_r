@@ -1,0 +1,61 @@
+---
+title: "Flex Example"
+output:
+    flexdashboard::flex_dashboard:
+        orientation: columns
+        vertical_layout: fill
+        self_contained: true
+runtime: shiny
+---
+
+```{r setup}
+knitr::opts_chunk$set(cache = FALSE)
+```
+
+
+```{r load-data, cache=TRUE}
+data(economics, package = "ggplot2")
+```
+
+```{r load-packages, cache=TRUE}
+library(ggplot2)
+```
+
+
+## Left
+
+### One
+
+```{r display-econ}
+DT::renderDataTable(DT::datatable(economics))
+```
+
+### Selector {data-height=250}
+
+```{r hist-var}
+selectInput(
+  inputId = "histVar",
+  label = "Please select a column",
+  choices = names(economics) # [sapply(economics, is.numeric)]
+)
+```
+
+## Right
+
+### Top
+
+```{r ist-econ}
+renderPlot(
+  ggplot(economics, aes_string(x = input$histVar)) +
+    geom_histogram()
+)
+```
+
+### Bottom
+
+```{r scatter-econ}
+renderPlot(
+  ggplot(economics, aes_string(x = input$histVar, y = "pce")) +
+    geom_point()
+)
+```

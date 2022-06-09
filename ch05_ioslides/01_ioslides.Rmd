@@ -1,13 +1,53 @@
 ---
 title: "Slideshow Fun"
 author: "Stefan J. Schmidt"
+date: "`r Sys.Date()`"
 output:
     ioslides_presentation:
         logo: logo.png
         widescreen: yes
         self_contained: yes
+runtime: shiny
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+## Fruit
+
+- Apples
+- Bananas
+- Kiwis
+
+<div class="notes">
+- This is a note to the speaker
+- The audience won't see it
+</div>
+
+## Graph Slide
+
+```{r load-data}
+library(ggplot2)
+data(diamonds)
+```
+
+```{r hist, message=FALSE, fig.align='c enter'}
+
+possible <- names(diamonds)[sapply(diamonds, is.numeric)]
+
+selectInput(
+  inputId = "selCol",
+  label = "Choose a column",
+  choices = possible
+)
+renderPlot(
+  ggplot(diamonds, aes_string(x = input$selCol)) +
+    geom_histogram()
+)
+```
+
+<div class="notes">
+- Histogram of diamond prices
+</div>
+
