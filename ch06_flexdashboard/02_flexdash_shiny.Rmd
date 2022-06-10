@@ -12,7 +12,6 @@ runtime: shiny
 knitr::opts_chunk$set(cache = FALSE)
 ```
 
-
 ```{r load-data, cache=TRUE}
 data(economics, package = "ggplot2")
 ```
@@ -21,8 +20,7 @@ data(economics, package = "ggplot2")
 library(ggplot2)
 ```
 
-
-## Left
+## Left Column
 
 ### One
 
@@ -40,7 +38,7 @@ selectInput(
 )
 ```
 
-## Right
+## Right Column
 
 ### Top
 
