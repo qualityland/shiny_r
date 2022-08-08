@@ -1,7 +1,7 @@
 ---
 title: "RMarkdown Primer"
 author: "Stefan Schmidt"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.Date(), '%d-%b-%Y')`"
 output:
   html_document:
     number_sections: yes
@@ -10,7 +10,7 @@ output:
       collapsed: no
       smooth_scroll: yes
 #    df_print: "kable"    # default: knitr::kable
-    df_print: "paged"   # default: DT::datatable
+#    df_print: "paged"   # default: DT::datatable
   pdf_document:
     number_sections: yes
     toc: yes
@@ -19,6 +19,12 @@ output:
 # Data Display
 
 ## Base R
+
+This is great for instructional code, if you want your audience to see it just
+the way they would in the console.
+
+But the default display mode can be easily change in our yaml header (either
+`knitr::kable()` or `DT::datatable()`)
 
 ```{r show-data}
 data(diamonds, package = "ggplot2")
