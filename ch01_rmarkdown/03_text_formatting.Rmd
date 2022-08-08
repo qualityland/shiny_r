@@ -1,7 +1,7 @@
 ---
 title: "RMarkdown Primer"
 author: "Stefan Schmidt"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.Date(), '%d-%b-%Y')`"
 output: html_document
 ---
 
@@ -25,9 +25,20 @@ This starts a new section.
 
 # Text Formatting
 
+This is all done using Underscores `_`:
+
 _italic_ 
 
 __bold__
 
 ___italic and bold___
 
+Does it look the same when we use asterix instead?
+
+*italic*
+
+**bold**
+
+***italic and bold***
+
+Yes, it does!

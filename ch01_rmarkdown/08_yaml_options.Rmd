@@ -1,6 +1,6 @@
 ---
 author: "Stefan Schmidt"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.Date(), '%d-%b-%Y')`"
 output:
     html_document:
         number_sections: true

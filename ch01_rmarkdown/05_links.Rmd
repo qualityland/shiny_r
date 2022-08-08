@@ -1,7 +1,7 @@
 ---
 title: "RMarkdown Primer"
 author: "Stefan Schmidt"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.Date(), '%d-%b-%Y')`"
 output: html_document
 ---
 
@@ -58,7 +58,7 @@ a. Gas
 
 ## Nested Lists
 
-<!-- indent using 4 spaces (2 are not sufficient!) --> 
+Indent using either `TAB` or 4 spaces (2 are not sufficient!)
 
 1. New York
     a. Coal
@@ -73,7 +73,7 @@ a. Gas
 
 # Links
 
-[My Website](www.jaredlander.com)
+[My Website](https://www.jaredlander.com)
 
 [Check out the pizza section](#TheLists)
 

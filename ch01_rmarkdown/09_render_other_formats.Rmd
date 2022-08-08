@@ -1,8 +1,11 @@
 ---
 title: "RMarkdown Primer"
 author: "Stefan Schmidt"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.Date(), '%d-%b-%Y')`"
 output:
+    pdf_document:
+        number_sections: true
+        toc: true
     html_document:
         number_sections: true
         toc: true
@@ -10,9 +13,6 @@ output:
             collapsed: false
             smooth_scroll: true
         code_download: true
-    pdf_document:
-        number_sections: true
-        toc: true
 ---
 
 # Level 1 Heading

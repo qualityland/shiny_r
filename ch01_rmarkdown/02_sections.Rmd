@@ -1,7 +1,7 @@
 ---
 title: "RMarkdown Primer"
 author: "Stefan Schmidt"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.Date(), '%d-%b-%Y')`"
 output: html_document
 ---
 
@@ -18,6 +18,10 @@ More text.
 ## Level 2 Heading
 
 This is a subsection under the level 1 heading.
+
+### Level 3 Heading
+
+This is a sub-subsection under the level 2 heading.
 
 # Back to Level 1
 

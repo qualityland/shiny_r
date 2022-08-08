@@ -1,7 +1,7 @@
 ---
 title: "RMarkdown Primer"
 author: "Stefan Schmidt"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.Date(), '%d-%b-%Y')`"
 output: html_document
 ---
 
@@ -35,10 +35,20 @@ ___italic and bold___
 
 ## Unordered Lists
 
+Here we use dashes `-`:
+
 - apples
 - bananas
 - oranges
 - kiwis
+
+But this can also be achieved using asterix `*`:
+
+* apples
+* bananas
+* oranges
+* kiwis
+
 
 ## Ordered Lists
 
@@ -58,7 +68,7 @@ a. Gas
 
 ## Nested Lists
 
-<!-- indent using 4 spaces (2 are not sufficient!) --> 
+Indent using either `TAB` or 4 spaces (2 are not sufficient!)
 
 1. New York
     a. Coal
