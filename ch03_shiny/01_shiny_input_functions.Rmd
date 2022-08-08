@@ -28,19 +28,19 @@ renderPrint(input$ExampleDropDown)
 # Slider Input
 
 ```{r slider-input, echo=FALSE}
-sliderInput(inputId="sliderExample",
-            label="This is a slider",
-            min=0,
-            max=5,
-            value=3
+sliderInput(inputId = "sliderExample",
+            label = "This is a slider",
+            min = 0,
+            max = 5,
+            value = 3
 )
 
 
-sliderInput(inputId="sliderExample2",
-            label="Two-ended slider",
-            min=0,
-            max=10,
-            value=c(4, 6)
+sliderInput(inputId = "sliderExample2",
+            label = "Two-ended slider",
+            min = 0,
+            max = 10,
+            value = c(4, 6)
 )
 
 ```
@@ -48,13 +48,13 @@ sliderInput(inputId="sliderExample2",
 # Checkbox Input
 
 ```{r checkbox-input, echo=FALSE}
-checkboxInput(inputId="checkExample",
-              label="Single check box"
+checkboxInput(inputId = "checkExample",
+              label = "Single check box"
 )
 
-checkboxGroupInput(inputId="checkGroupExample",
-                   label="Multiple check boxes",
-                   choices=list("A", "B", "C")
+checkboxGroupInput(inputId = "checkGroupExample",
+                   label = "Multiple check boxes",
+                   choices = list("A", "B", "C")
 )
 ```
 
@@ -68,9 +68,9 @@ renderPrint(input$checkGroupExample)
 # Radio buttons
 
 ```{r radio-buttons, echo=FALSE}
-radioButtons(inputId="radioSample",
-              label="Please choose one",
-              choices=list("A", "B", "C")
+radioButtons(inputId = "radioSample",
+              label = "Please choose one",
+              choices = list("A", "B", "C")
 )
 ```
 
@@ -86,8 +86,8 @@ renderPrint(input$radioSample)
 # Date Input
 
 ```{r date-input, echo=FALSE}
-dateInput(inputId="dateChoice",
-          label="Date Selector"
+dateInput(inputId = "dateChoice",
+          label = "Date Selector"
 )
 ```
 
@@ -100,8 +100,8 @@ renderPrint(input$dateChoice)
 
 
 ```{r dates-input, echo=FALSE}
-dateRangeInput(inputId="dateRangeChoice",
-              label="Please select dates:"
+dateRangeInput(inputId = "dateRangeChoice",
+              label = "Please select dates:"
 )
 ```
 

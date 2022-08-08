@@ -1,0 +1,58 @@
+---
+title: "Input Functions for Dates"
+output: html_document
+runtime: shiny
+---
+
+
+# Single Date Input
+
+```{r date-input}
+dateInput(inputId = "date1",
+          label = "Date Selector"
+)
+```
+
+
+Date value:
+
+```{r print-date-input, echo=FALSE}
+renderPrint(input$date1)
+```
+
+
+# Multiple Date Inputs
+
+```{r dates-input}
+dateRangeInput(inputId = "date2",
+              label = "Please select dates:"
+)
+```
+
+
+Date values:
+
+```{r print-dates-input, echo=FALSE}
+renderPrint(class(input$date2))
+renderPrint(input$date2)
+```
+
+
+# Text Input
+
+```{r text-input, echo=FALSE}
+textInput(inputId="textSample", label="Space to enter text:")
+
+textAreaInput(inputId="textAreaSample", label="Area to enter more text:")
+
+passwordInput(inputId="passwordExample", label="Protext your password:")
+```
+
+Password value:
+
+```{r print-text-input, echo=FALSE}
+renderPrint(input$passwordExample)
+renderText(input$passwordExample)
+```
+
+

@@ -1,0 +1,24 @@
+---
+title: "Input Functions: selectInput()"
+output: html_document
+runtime: shiny
+---
+  
+# Select input
+  
+```{r select-input}
+selectInput(
+  inputId = 'dropDown1',
+  label = "Please make a selection",
+  choices = list('Value 1' = 1,
+                 'Value 2' = 2,
+                 'Value 3' = 3)
+)
+```
+
+Print the value:
+  
+```{r print-select-input, echo=FALSE}
+renderPrint(input$dropDown1)
+```
+

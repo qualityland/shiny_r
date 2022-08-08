@@ -1,0 +1,22 @@
+---
+title: "Input Functions: radioButtons()"
+output: html_document
+runtime: shiny
+---
+
+ 
+# Radio buttons
+
+```{r radio-buttons}
+radioButtons(inputId = "ratio1",
+              label = "Please choose one",
+              choices = list("A", "B", "C")
+)
+```
+
+
+Radio button value:
+
+```{r print-radio-input, echo=FALSE}
+renderPrint(input$ratio1)
+```

@@ -1,0 +1,38 @@
+---
+title: "Input Functions for Checkboxes"
+output: html_document
+runtime: shiny
+---
+
+
+# Single Checkbox: `checkboxInput()`
+
+```{r checkbox-input}
+checkboxInput(inputId = "checkBox1",
+              label = "Single check box"
+)
+```
+
+Checkbox value:
+  
+```{r print-checkbox-input, echo=FALSE}
+renderPrint(input$checkBox1)
+```
+
+# Select Multiple Values: `checkboxGroupInput()`
+
+```{r checkbox-group-input}
+checkboxGroupInput(inputId = "checkGroup2",
+                   label = "Multiple check boxes",
+                   choices = list("A", "B", "C")
+)
+```
+
+
+Checkbox group values:
+
+```{r print-checkbox-group-input, echo=FALSE}
+renderPrint(input$checkGroup2)
+```
+
+  

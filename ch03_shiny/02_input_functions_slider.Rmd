@@ -1,0 +1,43 @@
+---
+title: "Input Functions: Slider"
+output: html_document
+runtime: shiny
+---
+
+
+# Single Value Slider
+
+```{r slider1-input}
+sliderInput(inputId = "slider1",
+            label = "Select a Value",
+            min = 0,
+            max = 5,
+            value = 3
+)
+```
+
+Slider value:
+  
+```{r print-slider1-input, echo=FALSE}
+renderPrint(input$slider1)
+```
+
+# Two-ended Slider
+
+```{r slider2-input}
+sliderInput(inputId = "slider2",
+            label = "Select a Range",
+            min = 0,
+            max = 10,
+            value = c(4, 6)
+)
+```
+
+
+Slider values:
+
+```{r print-slider2-input, echo=FALSE}
+renderPrint(input$slider2)
+```
+
+  
