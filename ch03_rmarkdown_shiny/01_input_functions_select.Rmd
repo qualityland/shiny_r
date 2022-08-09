@@ -1,10 +1,12 @@
 ---
-title: "Input Functions: selectInput()"
+title: "Input Functions: DropDown List"
 output: html_document
 runtime: shiny
 ---
   
-# Select input
+# Use `selectInput()` to create a DropDown List
+
+## Example:
   
 ```{r select-input}
 selectInput(
@@ -16,7 +18,7 @@ selectInput(
 )
 ```
 
-Print the value:
+Print the value for `input$dropDown1`:
   
 ```{r print-select-input, echo=FALSE}
 renderPrint(input$dropDown1)

@@ -5,7 +5,11 @@ runtime: shiny
 ---
 
 
-# Single Value Slider
+# Use `sliderInput()` to create a Slider
+
+User selects one or two (see below) values from a predefined range.
+
+## Example to pick a single Value:
 
 ```{r slider1-input}
 sliderInput(inputId = "slider1",
@@ -16,13 +20,13 @@ sliderInput(inputId = "slider1",
 )
 ```
 
-Slider value:
+Print the value for `input$slider1`:
   
 ```{r print-slider1-input, echo=FALSE}
 renderPrint(input$slider1)
 ```
 
-# Two-ended Slider
+## Example for Two-ended Slider
 
 ```{r slider2-input}
 sliderInput(inputId = "slider2",
@@ -34,7 +38,7 @@ sliderInput(inputId = "slider2",
 ```
 
 
-Slider values:
+Print the value for `input$slider2`:
 
 ```{r print-slider2-input, echo=FALSE}
 renderPrint(input$slider2)

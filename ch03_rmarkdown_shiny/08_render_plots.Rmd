@@ -1,25 +1,40 @@
 ---
-title: "Simple Shiny Document"
-author: "Stefan Schmidt"
+title: "Render Plots"
 output: html_document
 runtime: shiny
 ---
 
-# Render Plot
+# Static or User-controlled Plot:
 
-```{r plot-options, echo=FALSE}
-selectInput(inputId="plotColumn",
-            label="Choose a column:",
-            choices=names(mtcars)
+## Example of a simple static Histogram:
+
+```{r render-plot}
+renderPlot(hist(mtcars$mpg))
+```
+
+
+# Dynamic User-defined Plot
+
+## Example with options for variable and number of bins:
+
+End user can decide which `column` to choose for the histogram and also how
+many `breaks` (bins) to use.
+
+```{r plot-options}
+selectInput(
+  inputId="plotColumn",
+  label="Choose a column:",
+  choices=names(mtcars)
 )
-sliderInput(inputId="breaks",
-            label="Choose number of breaks:",
-            min=5,
-            max=50,
-            value=30
+sliderInput(
+  inputId="breaks",
+  label="Choose number of breaks:",
+  min=5,
+  max=50,
+  value=30
 )
 ```
 
-```{r render-plot, echo=FALSE}
+```{r render-plot-options, echo=FALSE}
 renderPlot(hist(mtcars[, input$plotColumn], breaks=input$breaks))
 ```

@@ -1,18 +1,35 @@
 ---
-title: "Simple Shiny Document"
+title: "Render Data"
 author: "Stefan Schmidt"
 output: html_document
 runtime: shiny
 ---
 
-# Render Data
+# Three different ways to render Data
 
-```{r render-data, echo=FALSE}
+## Using `renderTable()`:
+
+```{r render-table}
 renderTable(mtcars)
+```
+
+Creates a static table, similar to the one created by `knitr::kabel()`.
 
 
+## Using `shiny::renderDataTable()`:
+
+This does not show `rownames`, that is why variables cannot be mapped to a car
+type here.
+
+```{r render-data-table}
 renderDataTable(mtcars)
+```
 
 
+## Using `DT::renderDataTable()`:
+
+Probably the best option with reasonable defaults.
+
+```{r DT-render-data-table}
 DT::renderDataTable(mtcars)
 ```

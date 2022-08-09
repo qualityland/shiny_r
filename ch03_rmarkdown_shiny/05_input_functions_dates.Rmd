@@ -5,7 +5,9 @@ runtime: shiny
 ---
 
 
-# Single Date Input
+# Use `dateInput()` for a single Date
+
+## Example:
 
 ```{r date-input}
 dateInput(inputId = "date1",
@@ -14,45 +16,27 @@ dateInput(inputId = "date1",
 ```
 
 
-Date value:
+## Print the value of `input$date1`
 
 ```{r print-date-input, echo=FALSE}
 renderPrint(input$date1)
 ```
 
 
-# Multiple Date Inputs
+# Use `dateRangeInput()` for a Date Range
+
+## Example:
 
 ```{r dates-input}
-dateRangeInput(inputId = "date2",
+dateRangeInput(inputId = "dates2",
               label = "Please select dates:"
 )
 ```
 
 
-Date values:
+## Print the value of `input$dates2`
 
 ```{r print-dates-input, echo=FALSE}
-renderPrint(class(input$date2))
-renderPrint(input$date2)
+renderPrint(input$dates2)
 ```
-
-
-# Text Input
-
-```{r text-input, echo=FALSE}
-textInput(inputId="textSample", label="Space to enter text:")
-
-textAreaInput(inputId="textAreaSample", label="Area to enter more text:")
-
-passwordInput(inputId="passwordExample", label="Protext your password:")
-```
-
-Password value:
-
-```{r print-text-input, echo=FALSE}
-renderPrint(input$passwordExample)
-renderText(input$passwordExample)
-```
-
 

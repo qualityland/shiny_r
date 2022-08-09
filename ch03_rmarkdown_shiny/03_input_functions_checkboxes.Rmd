@@ -5,34 +5,36 @@ runtime: shiny
 ---
 
 
-# Single Checkbox: `checkboxInput()`
+# Use `checkboxInput()` to create a single Checkbox
+
+## Example:
 
 ```{r checkbox-input}
-checkboxInput(inputId = "checkBox1",
+checkboxInput(inputId = "checkbox1",
               label = "Single check box"
 )
 ```
 
-Checkbox value:
+## Print Value for `input$checkbox1`
   
 ```{r print-checkbox-input, echo=FALSE}
-renderPrint(input$checkBox1)
+renderPrint(input$checkbox1)
 ```
 
-# Select Multiple Values: `checkboxGroupInput()`
+# Use `checkboxGroupInput()` to create multiple Checkboxes
 
 ```{r checkbox-group-input}
-checkboxGroupInput(inputId = "checkGroup2",
+checkboxGroupInput(inputId = "checkboxGroup2",
                    label = "Multiple check boxes",
                    choices = list("A", "B", "C")
 )
 ```
 
 
-Checkbox group values:
+## Print Value for `input$checkboxGroup2`
 
 ```{r print-checkbox-group-input, echo=FALSE}
-renderPrint(input$checkGroup2)
+renderPrint(input$checkboxGroup2)
 ```
 
   
