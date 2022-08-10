@@ -1,0 +1,49 @@
+---
+title: "Flex Example"
+output:
+    flexdashboard::flex_dashboard:
+        orientation: columns
+        vertical_layout: fill
+        self_contained: true
+---
+
+```{r setup}
+knitr::opts_chunk$set(cache = TRUE)
+```
+
+
+```{r load-data}
+data(economics, package = "ggplot2")
+```
+
+```{r, load-packages}
+library(ggplot2)
+```
+
+
+## Left
+
+### One
+
+```{r display-econ}
+DT::datatable((economics))
+```
+
+
+## Right
+
+### Top
+
+```{r hist-econ}
+ggplot(economics, aes(x=psavert)) +
+  geom_histogram()
+```
+
+
+### Bottom
+
+```{r scatter-econ}
+ggplot(economics, aes(x = psavert, y = pce)) +
+  geom_point()
+```
+
