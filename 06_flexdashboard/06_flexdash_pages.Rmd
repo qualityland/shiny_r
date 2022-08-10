@@ -20,6 +20,17 @@ data(economics, package = "ggplot2")
 library(ggplot2)
 ```
 
+```{r read-file}
+theData <- reactive({
+  if(is.null(input$fileUpload))
+  {
+    return(NULL)
+  }
+  readr::read_csv(input$fileUpload$datapath)
+})
+```
+
+
 # First Page
 
 ## Controls {.sidebar data-width=300}
@@ -37,6 +48,12 @@ fileInput(
 ## Data View
 
 ###
+
+```{r show-uploaded-data}
+DT::renderDataTable(
+  DT::datatable(theData())
+)
+```
 
 
 # Second Page
