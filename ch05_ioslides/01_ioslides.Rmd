@@ -1,7 +1,7 @@
 ---
 title: "Slideshow Fun"
 author: "Stefan J. Schmidt"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.Date(), '%d-%b-%Y')`"
 output:
     ioslides_presentation:
         logo: logo.png
@@ -34,7 +34,9 @@ data(diamonds)
 
 ```{r hist, message=FALSE, fig.align='c enter'}
 
-possible <- names(diamonds)[sapply(diamonds, is.numeric)]
+# diamonds columns to choose from
+possible <- 
+  names(diamonds)[sapply(diamonds, is.numeric)]  # not reactive, won't change!
 
 selectInput(
   inputId = "selCol",
@@ -48,6 +50,6 @@ renderPlot(
 ```
 
 <div class="notes">
-- Histogram of diamond prices
+Histogram of diamond prices
 </div>
 

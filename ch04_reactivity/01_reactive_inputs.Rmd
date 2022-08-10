@@ -1,11 +1,12 @@
 ---
-title: "Simple Shiny Document"
-author: "Stefan J. Schmidt"
+title: "Reactivity"
 output: html_document
 runtime: shiny
 ---
 
 # Shiny Reactivity
+
+## Example with reactive Functions `textInput()` and `renderText()`:
 
 ```{r text-input, echo=FALSE}
 textInput(inputId = "textInput",
@@ -18,48 +19,66 @@ renderText(input$textInput)
 ```
 
 
+
 ```{r date-input}
 dateInput(inputId = "dateInput",
           label = "Select a date:")
 ```
 
-Internally represented as:
+
+# Naive Reactivity
+
+## A `Date()` Object's internal representation is not user-friendly:
+
+Internal representation (seconds since 01-Jan-1970):
 
 ```{r date-render}
 renderText(input$dateInput)
 ```
 
 
-# Naive Reactivity
+## Make them more user-friendly using `lubridate` Functions:
 
-Outside of reactive context:
-
-```{r load-lubridate, echo=FALSE}
+```{r load-lubridate}
 library(lubridate)
 ```
 
-```{r display-date, eval=FALSE}
-theDate <- input$dateInput
 
-renderText(sprintf(
-  "%s %s, %s",
-  month(theDate, label = TRUE, abbr = FALSE),
-  day(theDate),
-  year(theDate)
-))
+## Trying to store the `Date` Object ouside of a reactive Context fails:
+
+```{r display-date, eval=FALSE}
+theDate <- input$dateInput       # !!! NOT A REACTIVE CONTEXT !!!
+
+renderText(
+  sprintf(
+    "%s %s, %s",
+    month(theDate, label = TRUE, abbr = FALSE),
+    day(theDate),
+    year(theDate)
+  )
+)
+
 ```
 
 
 # Correct Reactivity
 
+## Using `reactive()` puts the Variable in a reactive Context:
+
 ```{r display-date2}
-theDate <- reactive(input$dateInput)
-renderText(sprintf(
-  "%s %s, %s",
-  month(theDate(), label = TRUE, abbr = FALSE),
-  day(theDate()),
-  year(theDate())
-))
+theDate <- reactive(input$dateInput)     # reactive context
+
+renderText(
+  sprintf(
+    "%s %s, %s",         # "August 10, 2022"
+    month(theDate(), label = TRUE, abbr = FALSE),
+    day(theDate()),      # calling the reactive variable
+    year(theDate())      # (in fact a function!)
+  )
+)
+
 ```
 
+
+CAVE: The reactive variable requires to be called like a Function `theDate()`.
 
