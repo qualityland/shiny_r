@@ -45,15 +45,24 @@ fileInput(
 )
 ```
 
-## Data View
+## Data View {.tabset}
 
-###
+### Table
 
 ```{r show-uploaded-data}
 DT::renderDataTable(
   DT::datatable(theData())
 )
 ```
+
+### Summary
+
+```{r show-summary}
+renderPrint(
+  summary(theData())
+)
+```
+
 
 
 # Second Page
