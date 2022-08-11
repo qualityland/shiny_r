@@ -22,7 +22,21 @@ data(economics, package = "ggplot2")
 
 ```{r load-packages, cache=TRUE}
 library(ggplot2)
+library(magrittr)
+library(leaflet)
 ```
+
+```{r locations}
+root <- rprojroot::find_rstudio_root_file()
+```
+
+
+```{r read-map-data}
+pizza <- 
+  jsonlite::fromJSON(file.path(root, "ch06_flexdashboard/FavoriteSpots.json")) %>% 
+  tidyr::unnest(cols=c("Details", "Coordinates"))
+```
+
 
 ```{r read-file}
 theData <- reactive({
@@ -124,4 +138,32 @@ Lizard
 # Page Six {data-navmenu="Menu B"}
 
 Dragon
+
+# Map
+
+##
+
+### Data
+
+```{r pizza-table}
+DT::renderDataTable(
+  DT::datatable(pizza)
+)
+```
+
+##
+
+### Map
+
+```{r pizza-map}
+renderLeaflet(
+  leaflet(pizza) %>% 
+    addTiles() %>% 
+    addMarkers(
+      lng = ~longitude,
+      lat = ~latitude,
+      popup = ~Name
+    )
+)
+```
 

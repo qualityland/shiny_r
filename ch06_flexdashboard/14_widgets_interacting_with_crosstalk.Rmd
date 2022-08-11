@@ -1,0 +1,60 @@
+---
+title: "Flex Example"
+output:
+    flexdashboard::flex_dashboard:
+        orientation: columns
+        vertical_layout: fill
+        self_contained: true
+        social: ["twitter", "facebook", "menu"]
+        logo: "logo50x50.png"
+        favicon: "favicon.png"
+        source_code: "embed"
+---
+
+```{r load-packages, cache=TRUE}
+library(magrittr)
+library(leaflet)
+library(crosstalk)
+```
+
+```{r setup}
+knitr::opts_chunk$set(cache = FALSE)
+```
+
+```{r locations}
+root <- rprojroot::find_rstudio_root_file()
+```
+
+
+```{r read-map-data}
+pizza <- 
+  jsonlite::fromJSON(file.path(root, "ch06_flexdashboard/FavoriteSpots.json")) %>% 
+  tidyr::unnest(cols=c("Details", "Coordinates"))
+
+pizzaShare <- SharedData$new(pizza)
+```
+
+# Map
+
+##
+
+### Data
+
+```{r pizza-table}
+DT::datatable(pizzaShare)
+```
+
+##
+
+### Map
+
+```{r pizza-map}
+leaflet(pizzaShare) %>% 
+  addTiles() %>% 
+  addMarkers(
+    lng = ~longitude,
+    lat = ~latitude,
+    popup = ~Name
+  )
+```
+
