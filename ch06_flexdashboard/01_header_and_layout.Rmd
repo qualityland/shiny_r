@@ -8,12 +8,11 @@ output:
 ---
 
 
-## Left
+## Left Column - invisible, but divides the space
 
 ### One
 
-
-## Right
+## Right Column
 
 ### Top
 

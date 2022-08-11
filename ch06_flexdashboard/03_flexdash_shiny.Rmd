@@ -22,7 +22,7 @@ library(ggplot2)
 ```
 
 
-## Left
+## Left Column
 
 ### One
 
@@ -33,7 +33,7 @@ DT::renderDataTable(
 ```
 
 
-## Right
+## Right Column
 
 ### Top
 
@@ -52,6 +52,5 @@ renderPlot(
   ggplot(economics, aes(x = psavert, y = pce)) +
     geom_point()
 )
-
 ```
 

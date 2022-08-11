@@ -1,0 +1,126 @@
+---
+title: "Flex Example"
+output:
+    flexdashboard::flex_dashboard:
+        orientation: columns
+        vertical_layout: fill
+        self_contained: true
+        social: ["twitter", "facebook", "menu"]
+        logo: "logo50x50.png"
+        favicon: "favicon.png"
+        source_code: "embed"
+runtime: shiny
+---
+
+```{r setup}
+knitr::opts_chunk$set(cache = FALSE)
+```
+
+```{r load-data, cache=TRUE}
+data(economics, package = "ggplot2")
+```
+
+```{r load-packages, cache=TRUE}
+library(ggplot2)
+```
+
+```{r read-file}
+theData <- reactive({
+  if(is.null(input$fileUpload))
+  {
+    return(NULL)
+  }
+  readr::read_csv(input$fileUpload$datapath)
+})
+```
+
+
+# First Page
+
+## Controls {.sidebar data-width=300}
+
+```{r file-input}
+fileInput(
+  inputId = "fileUpload",
+  label = "Please upload a file",
+  multiple = FALSE,
+  buttonLabel = "Upload",
+  placeholder = "waiting for file..."
+)
+```
+
+## Data View {.tabset}
+
+### Table
+
+```{r show-uploaded-data}
+DT::renderDataTable(
+  DT::datatable(theData())
+)
+```
+
+### Summary
+
+```{r show-summary}
+renderPrint(
+  summary(theData())
+)
+```
+
+
+
+# Second Page
+
+## Left Column
+
+### One
+
+```{r display-econ}
+DT::renderDataTable(DT::datatable(economics))
+```
+
+### Selector {data-height=250}
+
+```{r hist-var}
+selectInput(
+  inputId = "histVar",
+  label = "Please select a column",
+  choices = names(economics) # [sapply(economics, is.numeric)]
+)
+```
+
+## Right Column
+
+### Top
+
+```{r ist-econ, message=FALSE}
+renderPlot(
+  ggplot(economics, aes_string(x = input$histVar)) +
+    geom_histogram(bins = 30)
+)
+```
+
+### Bottom
+
+```{r scatter-econ}
+renderPlot(
+  ggplot(economics, aes_string(x = input$histVar, y = "pce")) +
+    geom_point()
+)
+```
+
+# Page Three {data-navmenu="Menu A"}
+
+Manji
+
+# Page Four {data-navmenu="Menu A"}
+
+Snake
+
+# Page Five {data-navmenu="Menu B"}
+
+Lizard
+
+# Page Six {data-navmenu="Menu B"}
+
+Dragon

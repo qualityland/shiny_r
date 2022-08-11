@@ -22,7 +22,7 @@ library(ggplot2)
 ```
 
 
-## Left
+## Left Column
 
 ### One
 
@@ -33,6 +33,7 @@ DT::renderDataTable(
 ```
 
 ### Selector {data-height=250}
+
 ```{r hist-var}
 selectInput(
   inputId = "histVar",
@@ -42,8 +43,7 @@ selectInput(
 ```
 
 
-
-## Right
+## Right Column
 
 ### Top
 
@@ -64,4 +64,3 @@ renderPlot(
 )
 
 ```
-
