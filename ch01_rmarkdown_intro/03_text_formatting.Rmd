@@ -5,27 +5,9 @@ date: "`r format(Sys.Date(), '%d-%b-%Y')`"
 output: html_document
 ---
 
-# Level 1 Heading
-
-This is a sentence. Any text here gets rendered as normal text.
-
-A blank line creates a new paragraph, still in the same section.
-
-# Another Level 1 Heading
-
-More text.
-
-## Level 2 Heading
-
-This is a subsection under the level 1 heading.
-
-# Back to Level 1
-
-This starts a new section.
-
 # Text Formatting
 
-This is all done using Underscores `_`:
+### Jared uses underscores `_` for italic and bold.
 
 _italic_ 
 
@@ -33,7 +15,7 @@ __bold__
 
 ___italic and bold___
 
-Does it look the same when we use asterix instead?
+### Does it look the same when we use asterix `*` instead?
 
 *italic*
 
@@ -41,4 +23,8 @@ Does it look the same when we use asterix instead?
 
 ***italic and bold***
 
-Yes, it does!
+### Yes, it does!
+
+oh no! The ==highlighted== syntax does not work!
+
+But we have ~~strikethrough~~ text! Great!
